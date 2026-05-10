@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AVIATOR AO PRO — Motor Quântico #1 Angola</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --r1:#FF0022;--r2:#FF4500;--r3:#8B0000;--r4:#CC0000;
+  --dark:#040008;--dark2:#0A0012;--dark3:#120018;
+  --card:rgba(255,0,34,0.07);--card2:rgba(255,0,34,0.14);
+  --border:rgba(255,0,34,0.2);--border2:rgba(255,0,34,0.45);
+  --gold:#FFD700;--green:#00E676;--cyan:#00BCD4;--purple:#9C27B0;
+  --text:#FFE8EC;--muted:#A06070;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--dark);color:var(--text);font-family:'Rajdhani',sans-serif;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 80% 45% at 50% -5%,rgba(255,0,34,0.14),transparent 65%),
+  radial-gradient(ellipse 50% 35% at 95% 100%,rgba(139,0,0,0.09),transparent 55%);}
+
+/* ══ HEADER ══ */
+header{position:sticky;top:0;z-index:300;background:rgba(4,0,8,0.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Orbitron',monospace;font-weight:900;font-size:.95rem;letter-spacing:2px;display:flex;align-items:center;gap:7px;color:#fff;}
+.logo em{background:linear-gradient(135deg,var(--r1),var(--r2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:normal;}
+.badge-live{display:flex;align-items:center;gap:5px;background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.35);padding:4px 11px;border-radius:50px;font-size:.72rem;font-weight:700;color:#00E676;letter-spacing:1px;}
+.dot-live{width:6px;height:6px;border-radius:50%;background:#00E676;animation:pg 1.2s infinite;}
+@keyframes pg{0%,100%{box-shadow:0 0 0 0 rgba(0,230,118,.8);}50%{box-shadow:0 0 0 5px rgba(0,230,118,0);}}
+
+/* ══ PAGES ══ */
+.page{display:none;position:relative;z-index:1;}
+.page.active{display:block;}
+
+/* ══ HERO ══ */
+.hero{text-align:center;padding:48px 16px 30px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 65% at 50% 0%,rgba(255,0,34,0.1),transparent);}
+.flag-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,0,34,0.14);border:1px solid var(--border2);color:var(--r1);padding:5px 14px;border-radius:50px;font-size:.73rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;animation:fd .5s ease;}
+@keyframes fd{from{opacity:0;transform:translateY(-12px);}to{opacity:1;}}
+.hero h1{font-family:'Orbitron',monospace;font-size:1.85rem;font-weight:900;line-height:1.2;margin-bottom:12px;animation:fd .65s ease;}
+.hero h1 span{background:linear-gradient(135deg,var(--r1),var(--r2),#FF8C00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 20px rgba(255,0,34,.5));}
+.hero-sub{font-size:.98rem;color:var(--muted);max-width:340px;margin:0 auto 22px;line-height:1.7;animation:fd .75s ease;}
+.hero-sub strong{color:var(--text);}
+.proof-bar{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:24px;}
+.pc{background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.2);color:var(--gold);padding:4px 11px;border-radius:50px;font-size:.77rem;font-weight:700;white-space:nowrap;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:370px;margin:0 auto 26px;}
+.hstat{background:var(--card2);border:1px solid var(--border2);border-radius:16px;padding:14px 7px;text-align:center;position:relative;overflow:hidden;}
+.hstat::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,0,34,.1),transparent 70%);}
+.hstat-n{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--r1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hstat-l{font-size:.68rem;color:var(--muted);margin-top:3px;}
+
+/* ══ SECTIONS ══ */
+.sec{padding:0 14px 30px;max-width:480px;margin:0 auto;}
+.sh{text-align:center;margin-bottom:16px;}
+.sh h2{font-family:'Orbitron',monospace;font-size:1.1rem;font-weight:700;letter-spacing:1.5px;margin-bottom:5px;}
+.sh p{color:var(--muted);font-size:.86rem;line-height:1.6;}
+.rl{width:38px;height:3px;margin:7px auto 0;background:linear-gradient(90deg,var(--r1),var(--r2));border-radius:50px;}
+
+/* ══ URGENCY ══ */
+.urgency{margin:0 auto 24px;max-width:480px;padding:0 14px;position:relative;z-index:1;}
+.urg-inner{background:linear-gradient(135deg,rgba(255,0,34,.18),rgba(255,69,0,.1));border:1px solid var(--border2);border-radius:16px;padding:13px 15px;display:flex;align-items:center;gap:11px;}
+.urg-icon{font-size:1.7rem;animation:sk 2.2s infinite;flex-shrink:0;}
+@keyframes sk{0%,100%{transform:rotate(0);}15%{transform:rotate(-8deg);}30%{transform:rotate(8deg);}50%{transform:rotate(0);}}
+.urg-text{font-size:.84rem;line-height:1.6;}
+.urg-text strong{color:var(--r1);font-family:'Orbitron',monospace;}
+
+/* ══ TICKER ══ */
+.ticker-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:9px 0;background:rgba(255,0,34,.03);margin-bottom:0;}
+.ticker-track{display:flex;gap:13px;animation:tk 30s linear infinite;width:max-content;}
+@keyframes tk{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.tc{flex-shrink:0;display:flex;align-items:center;gap:6px;background:rgba(0,230,118,.09);border:1px solid rgba(0,230,118,.22);padding:4px 12px;border-radius:50px;font-size:.79rem;font-weight:700;color:#00E676;white-space:nowrap;}
+.tc .tm{font-family:'Orbitron',monospace;font-size:.81rem;color:#fff;}
+
+/* ══ WINS GRID ══ */
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.wcard{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:12px 10px;position:relative;overflow:hidden;}
+.wcard::after{content:'';position:absolute;top:-14px;right:-14px;width:45px;height:45px;border-radius:50%;background:radial-gradient(circle,rgba(0,230,118,.12),transparent);}
+.wm{font-family:'Orbitron',monospace;font-size:1.35rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:2px;}
+.wp{font-size:.72rem;color:var(--muted);}
+.wc{font-size:.78rem;font-weight:700;color:var(--green);}
+.wt{font-size:.68rem;color:var(--muted);margin-top:1px;}
+.wb{position:absolute;top:8px;right:8px;background:rgba(0,230,118,.14);border:1px solid rgba(0,230,118,.24);color:var(--green);font-size:.66rem;font-weight:700;padding:2px 6px;border-radius:50px;}
+
+/* ══ TESTIMONIALS ══ */
+.tlist{display:flex;flex-direction:column;gap:10px;}
+.tcard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:15px;position:relative;overflow:hidden;}
+.tcard::after{content:'❝';position:absolute;bottom:-10px;right:10px;font-size:3.5rem;color:rgba(255,0,34,.07);line-height:1;}
+.tcard-stars{color:var(--gold);font-size:.84rem;margin-bottom:6px;}
+.tcard-text{font-size:.89rem;line-height:1.7;margin-bottom:12px;}
+.tcard-foot{display:flex;align-items:center;gap:8px;}
+.tcard-av{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--r3),var(--r2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.9rem;border:2px solid var(--border2);}
+.tcard-name{font-weight:700;font-size:.88rem;}
+.tcard-info{font-size:.7rem;color:var(--muted);margin-top:1px;}
+.tcard-earned{margin-left:auto;flex-shrink:0;background:rgba(0,230,118,.09);border:1px solid rgba(0,230,118,.2);color:var(--green);padding:4px 8px;border-radius:8px;font-family:'Orbitron',monospace;font-size:.74rem;font-weight:700;}
+
+/* ══ FEATURES ══ */
+.feats{display:flex;flex-direction:column;gap:8px;}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:13px;display:flex;gap:11px;align-items:flex-start;}
+.feat-ic{width:42px;height:42px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.25rem;background:var(--card2);border:1px solid var(--border2);}
+.feat-title{font-size:.92rem;font-weight:700;margin-bottom:3px;color:#fff;}
+.feat-desc{font-size:.8rem;color:var(--muted);line-height:1.6;}
+
+/* ══ COMPARISON ══ */
+.cmp{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.cmp-h{display:grid;grid-template-columns:1fr 1fr 1fr;padding:10px 12px;border-bottom:1px solid var(--border);font-size:.71rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);}
+.cmp-h .ours{color:var(--r1);font-family:'Orbitron',monospace;}
+.cmp-r{display:grid;grid-template-columns:1fr 1fr 1fr;padding:9px 12px;border-bottom:1px solid rgba(255,0,34,.06);font-size:.79rem;align-items:center;}
+.cmp-r:last-child{border-bottom:none;}
+.cmp-r .fn{color:var(--muted);}
+.cmp-r .yes{color:var(--green);font-weight:700;text-align:center;}
+.cmp-r .no{color:#3a3a3a;text-align:center;}
+.cmp-r .ov{color:var(--r1);font-weight:700;text-align:center;}
+
+/* ══ STEPS ══ */
+.steps{display:flex;flex-direction:column;}
+.step{display:flex;gap:13px;padding-bottom:20px;position:relative;}
+.step:not(:last-child)::before{content:'';position:absolute;left:16px;top:34px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--r1),transparent);}
+.step-n{width:32px;height:32px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--r1),var(--r2));display:flex;align-items:center;justify-content:center;font-family:'Orbitron',monospace;font-weight:900;font-size:.82rem;box-shadow:0 0 14px rgba(255,0,34,.4);}
+.step-title{font-size:.92rem;font-weight:700;margin-bottom:3px;}
+.step-desc{font-size:.81rem;color:var(--muted);line-height:1.6;}
+
+/* ══ GATE ══ */
+.gate-wrap{margin:0 auto;max-width:480px;padding:0 14px;position:relative;z-index:1;}
+.gate-card{background:linear-gradient(135deg,rgba(255,0,34,.12),rgba(139,0,0,.07));border:2px solid var(--r1);border-radius:20px;padding:24px 17px;text-align:center;box-shadow:0 0 50px rgba(255,0,34,.15);position:relative;overflow:hidden;}
+.gate-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,0,34,.09),transparent 60%);}
+.gate-title{font-family:'Orbitron',monospace;font-size:1.15rem;font-weight:900;margin-bottom:6px;position:relative;}
+.gate-sub{font-size:.86rem;color:var(--muted);margin-bottom:18px;line-height:1.7;position:relative;}
+.gate-sub strong{color:var(--text);}
+.gate-feats{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:16px;position:relative;}
+.gf{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:8px;padding:6px 8px;font-size:.76rem;display:flex;align-items:center;gap:5px;}
+.gate-input{width:100%;background:rgba(0,0,0,.5);border:1px solid var(--border2);border-radius:12px;color:#fff;font-family:'Orbitron',monospace;font-size:.95rem;padding:14px 15px;letter-spacing:4px;text-align:center;outline:none;margin-bottom:10px;position:relative;z-index:1;transition:border-color .3s;}
+.gate-input:focus{border-color:var(--r1);box-shadow:0 0 16px rgba(255,0,34,.18);}
+.gate-input::placeholder{letter-spacing:2px;font-size:.78rem;color:var(--muted);}
+.gate-input.err{border-color:#FF4444;animation:sh .4s ease;}
+@keyframes sh{0%,100%{transform:translateX(0);}25%{transform:translateX(-7px);}75%{transform:translateX(7px);}}
+.gate-error{color:#FF5555;font-size:.8rem;margin-bottom:8px;display:none;font-weight:600;position:relative;}
+.btn-access{width:100%;background:linear-gradient(135deg,var(--r1),var(--r2));border:none;border-radius:13px;color:#fff;font-family:'Orbitron',monospace;font-size:.88rem;font-weight:700;padding:16px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;box-shadow:0 4px 26px rgba(255,0,34,.45);transition:all .3s;position:relative;z-index:1;}
+.btn-access:hover{transform:translateY(-2px);box-shadow:0 8px 36px rgba(255,0,34,.65);}
+.gate-note{font-size:.74rem;color:var(--muted);margin-top:11px;position:relative;}
+.gate-note a{color:var(--r1);font-weight:700;text-decoration:none;}
+
+.cta-wa{padding:32px 14px;text-align:center;position:relative;z-index:1;}
+.cta-wa h2{font-family:'Orbitron',monospace;font-size:1.1rem;font-weight:900;margin-bottom:8px;}
+.cta-wa p{color:var(--muted);font-size:.88rem;margin-bottom:16px;line-height:1.6;}
+.btn-wa{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;max-width:370px;margin:0 auto 10px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;text-decoration:none;font-family:'Orbitron',monospace;font-weight:700;font-size:.84rem;letter-spacing:1px;padding:16px;border-radius:14px;text-align:center;box-shadow:0 4px 26px rgba(37,211,102,.28);transition:all .3s;}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 36px rgba(37,211,102,.45);}
+.guarantee{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:rgba(255,215,0,.07);border:1px solid rgba(255,215,0,.16);padding:8px 14px;border-radius:50px;font-size:.76rem;color:var(--gold);font-weight:600;}
+
+/* ══ PAGE 2 — BOT ══ */
+.bot-hdr{text-align:center;padding:24px 14px 14px;position:relative;z-index:1;}
+.bot-hdr h2{font-family:'Orbitron',monospace;font-size:1.05rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--r1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:3px;}
+.bot-hdr p{color:var(--muted);font-size:.82rem;}
+.bot-wrap{max-width:480px;margin:0 auto;padding:0 13px 38px;position:relative;z-index:1;}
+
+.plat-lbl{font-size:.72rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.plat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:13px;}
+.plat-btn{background:rgba(255,0,34,.06);border:1px solid var(--border);color:var(--text);border-radius:9px;padding:8px 3px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:.72rem;font-weight:700;text-align:center;transition:all .2s;line-height:1.3;}
+.plat-btn .pd{width:5px;height:5px;border-radius:50%;background:var(--green);margin:0 auto 3px;box-shadow:0 0 4px var(--green);}
+.plat-btn.active,.plat-btn:hover{background:rgba(255,0,34,.2);border-color:var(--r1);color:#fff;box-shadow:0 0 10px rgba(255,0,34,.2);}
+
+/* Signal card */
+.sig-card{border-radius:20px;padding:22px 18px;margin-bottom:12px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,0,34,.09),rgba(139,0,0,.04));border:1px solid var(--border2);}
+.sig-card::before{content:'';position:absolute;inset:0;background:conic-gradient(from 0deg at 50% 50%,transparent,rgba(255,0,34,.04),transparent);animation:rot 12s linear infinite;}
+@keyframes rot{to{transform:rotate(360deg);}}
+.sig-lbl{font-size:.67rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;font-weight:700;position:relative;}
+.sig-val{font-family:'Orbitron',monospace;font-size:3.6rem;font-weight:900;line-height:1;position:relative;transition:all .4s;background:linear-gradient(135deg,var(--gold),var(--r2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 20px rgba(255,140,0,.45));}
+.sig-val.idle{background:linear-gradient(135deg,#252525,#3a3a3a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:none;}
+.sig-val.loading{background:linear-gradient(135deg,var(--r3),var(--r1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:bl .45s infinite;}
+@keyframes bl{0%,100%{opacity:1;}50%{opacity:.2;}}
+.sig-sub{font-size:.88rem;color:var(--muted);margin-top:8px;position:relative;}
+.sig-badge{display:inline-block;margin-top:10px;padding:4px 14px;border-radius:50px;font-size:.8rem;font-weight:700;position:relative;}
+.sig-badge.hi{background:rgba(0,230,118,.12);border:1px solid rgba(0,230,118,.28);color:var(--green);}
+.sig-badge.md{background:rgba(255,215,0,.1);border-color:rgba(255,215,0,.22);color:var(--gold);}
+.sig-badge.lo{background:rgba(255,0,34,.12);border-color:rgba(255,0,34,.25);color:var(--r1);}
+
+/* Algo meters */
+.algo-section{display:none;margin-top:14px;}
+.algo-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.am{background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:9px;padding:8px 9px;}
+.am-name{font-size:.63rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;font-weight:700;}
+.am-bar{height:4px;background:rgba(255,255,255,.07);border-radius:50px;overflow:hidden;}
+.am-fill{height:100%;border-radius:50px;width:0%;transition:width .25s;}
+.am-fill.f1{background:linear-gradient(90deg,var(--r3),var(--r1));}
+.am-fill.f2{background:linear-gradient(90deg,#7C3AED,var(--r1));}
+.am-fill.f3{background:linear-gradient(90deg,var(--gold),var(--r2));}
+.am-fill.f4{background:linear-gradient(90deg,var(--green),var(--cyan));}
+.am-val{font-size:.66rem;color:var(--gold);margin-top:2px;font-family:'Orbitron',monospace;}
+.num-stream{background:rgba(0,0,0,.45);border:1px solid var(--border);border-radius:8px;padding:6px 9px;font-family:'Orbitron',monospace;font-size:.56rem;color:rgba(255,0,34,.5);letter-spacing:.5px;overflow:hidden;height:22px;margin-top:8px;display:none;}
+
+/* Progress */
+.prog-wrap{margin-bottom:11px;display:none;}
+.prog-outer{height:5px;background:rgba(255,255,255,.06);border-radius:50px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--r3),var(--r1),var(--r2),var(--gold));background-size:200% 100%;border-radius:50px;width:0%;transition:width .08s;box-shadow:0 0 8px rgba(255,0,34,.4);animation:pgm 2s linear infinite;}
+@keyframes pgm{0%{background-position:0%;}100%{background-position:200%;}}
+.prog-info{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-top:4px;}
+.prog-phase{font-size:.67rem;color:var(--r1);font-weight:700;margin-top:2px;text-transform:uppercase;letter-spacing:1px;}
+
+/* Result detail */
+.res-detail{display:none;margin-bottom:12px;}
+.res-inner{background:var(--card2);border:1px solid var(--border2);border-radius:14px;padding:13px;}
+.res-title{font-size:.69rem;color:var(--r1);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;}
+.ri{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:8px;padding:8px;text-align:center;}
+.ri-lbl{font-size:.62rem;color:var(--muted);margin-bottom:3px;text-transform:uppercase;letter-spacing:1px;}
+.ri-val{font-weight:700;font-size:.85rem;}
+.dist-bars{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:8px;padding:9px;margin-bottom:8px;}
+.dist-title{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;}
+.dist-row{display:flex;align-items:flex-end;gap:3px;height:40px;}
+.dist-bar{flex:1;border-radius:2px 2px 0 0;transition:height .5s;}
+.dist-labels{display:flex;justify-content:space-between;font-size:.58rem;color:var(--muted);margin-top:2px;}
+.gauge-section{text-align:center;}
+.gauge-lbl{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+.gauge-bar{height:7px;background:rgba(255,255,255,.07);border-radius:50px;overflow:hidden;margin-bottom:3px;}
+.gauge-fill{height:100%;border-radius:50px;transition:width .9s ease;background:linear-gradient(90deg,var(--r1),var(--gold),var(--green));}
+.gauge-val{font-family:'Orbitron',monospace;font-size:.78rem;font-weight:700;color:var(--gold);}
+
+/* Stats row */
+.ms-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:11px;}
+.ms{background:rgba(255,0,34,.06);border:1px solid var(--border);border-radius:10px;padding:8px 4px;text-align:center;}
+.ms-n{font-family:'Orbitron',monospace;font-size:1.05rem;font-weight:700;}
+.ms-n.g{color:var(--green);}.ms-n.r{color:var(--r1);}.ms-n.o{color:var(--gold);}.ms-n.c{color:var(--cyan);}
+.ms-l{font-size:.62rem;color:var(--muted);margin-top:1px;}
+
+/* Heatmap */
+.hm-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:11px;margin-bottom:11px;}
+.hm-title{font-size:.69rem;color:var(--r1);letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:8px;}
+.hm-cells{display:flex;gap:3px;flex-wrap:wrap;}
+.hm-cell{width:14px;height:14px;border-radius:2px;background:rgba(255,255,255,.05);transition:background .3s;}
+.hm-legend{display:flex;gap:9px;margin-top:6px;font-size:.65rem;color:var(--muted);}
+.hm-dot{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:3px;vertical-align:middle;}
+
+/* Generate button */
+.btn-gen{width:100%;background:linear-gradient(135deg,var(--r1),var(--r2));border:none;border-radius:14px;color:#fff;font-family:'Orbitron',monospace;font-size:.88rem;font-weight:700;padding:17px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;box-shadow:0 4px 26px rgba(255,0,34,.48);transition:all .3s;position:relative;overflow:hidden;margin-bottom:12px;}
+.btn-gen::after{content:'';position:absolute;top:-50%;left:-60%;width:38%;height:200%;background:rgba(255,255,255,.1);transform:skewX(-20deg);transition:left .5s;}
+.btn-gen:hover{transform:translateY(-2px);box-shadow:0 8px 36px rgba(255,0,34,.65);}
+.btn-gen:hover::after{left:130%;}
+.btn-gen:disabled{background:rgba(160,0,0,.2);box-shadow:none;cursor:not-allowed;transform:none;}
+
+/* Log */
+.log-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:12px;}
+.log-head{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border-bottom:1px solid var(--border);}
+.log-title{font-size:.75rem;font-weight:700;letter-spacing:1px;color:var(--r1);text-transform:uppercase;}
+.log-clr{background:rgba(255,0,34,.09);border:1px solid rgba(255,0,34,.2);color:var(--r1);border-radius:6px;font-size:.68rem;padding:3px 8px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:600;}
+.log-body{max-height:190px;overflow-y:auto;}
+.log-cols{display:grid;grid-template-columns:50px 1fr 68px 58px;padding:6px 12px;font-size:.67rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--border);}
+.log-row{display:grid;grid-template-columns:50px 1fr 68px 58px;padding:8px 12px;border-bottom:1px solid rgba(255,0,34,.05);font-size:.79rem;align-items:center;animation:si .25s ease;}
+@keyframes si{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+.log-row:last-child{border-bottom:none;}
+.log-mult{font-family:'Orbitron',monospace;font-weight:700;color:var(--gold);font-size:.78rem;}
+.log-res{text-align:right;font-weight:700;font-size:.8rem;}
+.log-res.win{color:var(--green);}.log-res.pend{color:var(--muted);font-size:.68rem;}
+.log-empty{text-align:center;padding:24px;color:var(--muted);font-size:.82rem;}
+
+.btn-back{display:inline-flex;align-items:center;gap:6px;background:rgba(255,0,34,.08);border:1px solid var(--border);color:var(--muted);padding:7px 14px;border-radius:50px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'Rajdhani',sans-serif;margin:12px 13px 0;position:relative;z-index:1;}
+
+/* ══ PAGE 3 — ADMIN ══ */
+.admin-login{max-width:380px;margin:55px auto 0;padding:0 14px;text-align:center;position:relative;z-index:1;}
+.admin-login h2{font-family:'Orbitron',monospace;font-size:1rem;font-weight:900;margin-bottom:5px;}
+.admin-login p{color:var(--muted);font-size:.81rem;margin-bottom:20px;}
+.admin-wrap{max-width:480px;margin:0 auto;padding:12px 13px 38px;position:relative;z-index:1;}
+.admin-tabs{display:flex;gap:6px;margin-bottom:16px;overflow-x:auto;padding-bottom:3px;scrollbar-width:none;}
+.admin-tabs::-webkit-scrollbar{display:none;}
+.admin-tab{flex-shrink:0;background:rgba(255,0,34,.06);border:1px solid var(--border);color:var(--muted);padding:7px 12px;border-radius:50px;font-size:.74rem;font-weight:700;cursor:pointer;font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;transition:all .2s;}
+.admin-tab.active{background:rgba(255,0,34,.2);border-color:var(--r1);color:#fff;}
+.admin-section{display:none;}
+.admin-section.active{display:block;}
+.admin-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:11px;}
+.admin-card h3{font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--r1);margin-bottom:11px;}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.astat{background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:12px;text-align:center;}
+.astat-n{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:900;color:var(--gold);}
+.astat-l{font-size:.68rem;color:var(--muted);margin-top:2px;}
+.form-group{margin-bottom:10px;}
+.form-label{font-size:.72rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:4px;display:block;}
+.form-input{width:100%;background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:8px;color:#fff;font-family:'Rajdhani',sans-serif;font-size:.9rem;padding:10px 12px;outline:none;transition:border-color .2s;}
+.form-input:focus{border-color:var(--r1);}
+.form-select{width:100%;background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:8px;color:#fff;font-family:'Rajdhani',sans-serif;font-size:.9rem;padding:10px 12px;outline:none;appearance:none;}
+.form-select option{background:#0A0012;}
+.btn-admin{background:linear-gradient(135deg,var(--r1),var(--r2));border:none;border-radius:10px;color:#fff;font-family:'Orbitron',monospace;font-size:.76rem;font-weight:700;padding:11px 16px;cursor:pointer;letter-spacing:1px;transition:all .2s;width:100%;}
+.btn-admin:hover{opacity:.85;}
+.btn-admin.ghost{background:transparent;border:1px solid var(--border2);color:var(--r1);}
+.member-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,0,34,.06);}
+.member-row:last-child{border-bottom:none;}
+.member-name{font-weight:700;font-size:.84rem;}
+.member-meta{font-size:.7rem;color:var(--muted);margin-top:1px;}
+.mbadge{font-size:.67rem;font-weight:700;padding:2px 8px;border-radius:50px;}
+.mbadge.on{background:rgba(0,230,118,.12);color:var(--green);border:1px solid rgba(0,230,118,.22);}
+.mbadge.off{background:rgba(255,0,34,.12);color:var(--r1);border:1px solid rgba(255,0,34,.22);}
+.btn-del{background:rgba(255,0,34,.08);border:1px solid rgba(255,0,34,.18);color:var(--r1);border-radius:6px;font-size:.66rem;padding:3px 8px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:600;margin-left:6px;}
+.pass-box{background:rgba(0,0,0,.4);border:1px solid var(--border2);border-radius:10px;padding:12px;text-align:center;margin-top:8px;}
+.pass-val{font-family:'Orbitron',monospace;font-size:1.3rem;font-weight:900;color:var(--gold);letter-spacing:4px;margin-bottom:8px;}
+.btn-copy{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.2);color:var(--gold);border-radius:6px;font-size:.74rem;padding:5px 12px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:700;}
+.msg-preview{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:10px;padding:11px;font-size:.8rem;color:var(--muted);line-height:1.7;margin-top:8px;white-space:pre-wrap;}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,0,34,.06);}
+.toggle-row:last-child{border-bottom:none;}
+.tog-lbl{font-size:.84rem;font-weight:600;}
+.tog-desc{font-size:.7rem;color:var(--muted);margin-top:1px;}
+.tog{width:40px;height:21px;background:rgba(255,255,255,.08);border-radius:50px;position:relative;cursor:pointer;transition:background .2s;border:1px solid var(--border);flex-shrink:0;}
+.tog.on{background:linear-gradient(135deg,var(--r1),var(--r2));}
+.tog::after{content:'';position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:#fff;transition:left .2s;}
+.tog.on::after{left:21px;}
+
+footer{text-align:center;padding:16px 14px;border-top:1px solid var(--border);font-size:.72rem;color:var(--muted);position:relative;z-index:1;}
+footer strong{color:var(--r1);font-family:'Orbitron',monospace;}
+
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);background:rgba(0,230,118,.95);color:#000;font-weight:700;padding:10px 18px;border-radius:50px;font-size:.82rem;z-index:999;transition:transform .35s ease;pointer-events:none;white-space:nowrap;max-width:calc(100vw - 28px);text-align:center;}
+#toast.show{transform:translateX(-50%) translateY(0);}
+#toast.terr{background:rgba(255,0,34,.95);color:#fff;}
+
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-thumb{background:var(--r3);border-radius:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🚀 <em>AVIATOR</em>&nbsp;AO PRO</div>
+  <div class="badge-live"><div class="dot-live"></div>AO VIVO</div>
+</header>
+
+<!-- ═══════════ PAGE 1 — LANDING ═══════════ -->
+<div class="page active" id="page1">
+
+  <div class="hero">
+    <div class="flag-tag">🇦🇴 Motor Quântico #1 Angola</div>
+    <h1><span>Sinais Precisos.<br>Kwanzas Reais.</span></h1>
+    <p class="hero-sub">O único predictor com <strong>4 algoritmos combinados</strong> treinado para as casas de aposta angolanas. <strong>94% de acerto comprovado.</strong></p>
+    <div class="proof-bar">
+      <div class="pc">✅ +3.100 membros</div>
+      <div class="pc">🔥 <span id="sc1">1.042</span> sinais hoje</div>
+      <div class="pc">💰 94% acerto</div>
+      <div class="pc">⚡ 10 plataformas AO</div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">94%</div><div class="hstat-l">Taxa Acerto</div></div>
+      <div class="hstat"><div class="hstat-n">3.1K</div><div class="hstat-l">Membros</div></div>
+      <div class="hstat"><div class="hstat-n" id="sc2">1.042</div><div class="hstat-l">Sinais Hoje</div></div>
+    </div>
+  </div>
+
+  <div class="urgency">
+    <div class="urg-inner">
+      <div class="urg-icon">⚠️</div>
+      <div class="urg-text"><strong>ATENÇÃO!</strong> Apenas <strong id="spots">17</strong> vagas VIP disponíveis hoje. Sinais com confiança >90% são exclusivos para membros ativos.</div>
+    </div>
+  </div>
+
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <div class="tc">🎯 Luanda · <span class="tm">24.6x</span> ✅</div>
+      <div class="tc">🔥 Benguela · <span class="tm">8.3x</span> ✅</div>
+      <div class="tc">💰 Huambo · <span class="tm">19.7x</span> ✅</div>
+      <div class="tc">⚡ Lubango · <span class="tm">5.9x</span> ✅</div>
+      <div class="tc">🎯 Cabinda · <span class="tm">12.1x</span> ✅</div>
+      <div class="tc">🔥 Luanda · <span class="tm">33.5x</span> ✅</div>
+      <div class="tc">💰 Malanje · <span class="tm">7.4x</span> ✅</div>
+      <div class="tc">⚡ Benguela · <span class="tm">15.8x</span> ✅</div>
+      <div class="tc">🎯 Luanda · <span class="tm">24.6x</span> ✅</div>
+      <div class="tc">🔥 Benguela · <span class="tm">8.3x</span> ✅</div>
+      <div class="tc">💰 Huambo · <span class="tm">19.7x</span> ✅</div>
+      <div class="tc">⚡ Lubango · <span class="tm">5.9x</span> ✅</div>
+      <div class="tc">🎯 Cabinda · <span class="tm">12.1x</span> ✅</div>
+      <div class="tc">🔥 Luanda · <span class="tm">33.5x</span> ✅</div>
+      <div class="tc">💰 Malanje · <span class="tm">7.4x</span> ✅</div>
+      <div class="tc">⚡ Benguela · <span class="tm">15.8x</span> ✅</div>
+    </div>
+  </div>
+
+  <div class="sec" style="padding-top:24px;">
+    <div class="sh"><h2>🏆 ÚLTIMAS VENCEDORAS</h2><p>Resultados reais dos membros nas últimas horas</p><div class="rl"></div></div>
+    <div class="wgrid">
+      <div class="wcard"><div class="wm">33.5x</div><div class="wp">Betclic AO</div><div class="wc">📍 Luanda</div><div class="wt">há 6 min</div><div class="wb">✅ WIN</div></div>
+      <div class="wcard"><div class="wm">24.6x</div><div class="wp">1xBet</div><div class="wc">📍 Luanda</div><div class="wt">há 19 min</div><div class="wb">✅ WIN</div></div>
+      <div class="wcard"><div class="wm">19.7x</div><div class="wp">BetWinner</div><div class="wc">📍 Huambo</div><div class="wt">há 31 min</div><div class="wb">✅ WIN</div></div>
+      <div class="wcard"><div class="wm">15.8x</div><div class="wp">Betano AO</div><div class="wc">📍 Benguela</div><div class="wt">há 44 min</div><div class="wb">✅ WIN</div></div>
+      <div class="wcard"><div class="wm">12.1x</div><div class="wp">SportyBet</div><div class="wc">📍 Cabinda</div><div class="wt">há 58 min</div><div class="wb">✅ WIN</div></div>
+      <div class="wcard"><div class="wm">8.3x</div><div class="wp">Parimatch</div><div class="wc">📍 Benguela</div><div class="wt">há 1h 10m</div><div class="wb">✅ WIN</div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sh"><h2>💬 DEPOIMENTOS REAIS</h2><p>Angolanos que mudaram de vida com o sistema</p><div class="rl"></div></div>
+    <div class="tlist">
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">"Comecei com 5.000 AOA. Em 4 dias já tinha 48.000 AOA. O bot gerou um sinal de 33x no Betclic e acertou exatamente. Nunca vi nada assim em Angola. Sistema top mesmo!"</div>
+        <div class="tcard-foot"><div class="tcard-av">J</div><div><div class="tcard-name">João Domingos</div><div class="tcard-info">📍 Luanda · membro há 3 meses</div></div><div class="tcard-earned">+48.000 AOA</div></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">"Já testei 5 bots diferentes e todos me enganaram. Este usa 4 algoritmos reais e sente-se a diferença. No 1xBet acertei 9 de 10 sinais numa semana. Recomendo a todos!"</div>
+        <div class="tcard-foot"><div class="tcard-av">A</div><div><div class="tcard-name">Ana Ferreira</div><div class="tcard-info">📍 Benguela · membra há 2 meses</div></div><div class="tcard-earned">+62.500 AOA</div></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">"Uso o bot todas as manhãs antes de trabalhar. Em 5 meses já ganhei mais de 200.000 AOA. O sistema de confiança % é muito preciso — quando diz ALTA, é mesmo alta!"</div>
+        <div class="tcard-foot"><div class="tcard-av">C</div><div><div class="tcard-name">Carlos Neto</div><div class="tcard-info">📍 Huambo · membro há 5 meses</div></div><div class="tcard-earned">+205.000 AOA</div></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">"Sou estudante em Lubango e este sistema paga as minhas propinas todos os meses. O bot é fácil de usar, o sinal aparece em segundos. Obrigada Aviator AO Pro!"</div>
+        <div class="tcard-foot"><div class="tcard-av">M</div><div><div class="tcard-name">Maria Santos</div><div class="tcard-info">📍 Lubango · membra há 1 mês</div></div><div class="tcard-earned">+23.000 AOA</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sh"><h2>🔬 POR QUE FUNCIONA 100%</h2><p>4 algoritmos combinados — tecnologia exclusiva</p><div class="rl"></div></div>
+    <div class="feats">
+      <div class="feat"><div class="feat-ic">🧮</div><div><div class="feat-title">Motor Fibonacci</div><div class="feat-desc">Usa a sequência matemática dourada para mapear onde os multiplicadores altos vão ocorrer com base em padrões históricos.</div></div></div>
+      <div class="feat"><div class="feat-ic">🔥</div><div><div class="feat-title">Streak Analyser</div><div class="feat-desc">Analisa sequências de multiplicadores baixos para prever a "explosão" — o momento em que o jogo paga alto de seguida.</div></div></div>
+      <div class="feat"><div class="feat-ic">⚛️</div><div><div class="feat-title">Monte Carlo Quântico</div><div class="feat-desc">Executa 500 simulações por sinal usando distribuições de probabilidade. O resultado mais provável é o teu sinal.</div></div></div>
+      <div class="feat"><div class="feat-ic">📊</div><div><div class="feat-title">Pattern Engine</div><div class="feat-desc">Aprende com o histórico da tua sessão. Quanto mais usas, mais preciso fica — adapta-se ao comportamento atual do jogo.</div></div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sh"><h2>⚔️ NÓS VS CONCORRÊNCIA</h2><div class="rl"></div></div>
+    <div class="cmp">
+      <div class="cmp-h"><span>Função</span><span class="ours">AO PRO</span><span>Outros</span></div>
+      <div class="cmp-r"><span class="fn">Algoritmos</span><span class="ov">4 combinados</span><span class="no">1 genérico</span></div>
+      <div class="cmp-r"><span class="fn">10 plataformas AO</span><span class="yes">✅</span><span class="no">❌</span></div>
+      <div class="cmp-r"><span class="fn">Profile por plataforma</span><span class="yes">✅</span><span class="no">❌</span></div>
+      <div class="cmp-r"><span class="fn">Mapa de calor sessão</span><span class="yes">✅</span><span class="no">❌</span></div>
+      <div class="cmp-r"><span class="fn">Painel Admin completo</span><span class="yes">✅</span><span class="no">❌</span></div>
+      <div class="cmp-r"><span class="fn">Taxa de acerto</span><span class="ov">94%</span><span class="no">~55%</span></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sh"><h2>📋 COMO FUNCIONA</h2><div class="rl"></div></div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div><div class="step-title">Obtém Acesso VIP</div><div class="step-desc">Contacta via WhatsApp e paga via referência bancária ou transferência. Senha enviada em menos de 5 minutos.</div></div></div>
+      <div class="step"><div class="step-n">2</div><div><div class="step-title">Entra no Bot</div><div class="step-desc">Insere a senha, escolhe a tua plataforma angolana favorita e carrega em INICIAR ANÁLISE QUÂNTICA.</div></div></div>
+      <div class="step"><div class="step-n">3</div><div><div class="step-title">Aposta e Lucra</div><div class="step-desc">Recebe o multiplicador alvo, aposta na ronda seguinte e faz cash out no valor indicado. Acumula Kwanzas!</div></div></div>
+    </div>
+  </div>
+
+  <div class="cta-wa">
+    <h2>🚀 Começa a Ganhar Agora</h2>
+    <p>Junta-te a 3.100+ angolanos que já usam o predictor #1 do país.</p>
+    <a href="https://wa.me/244937175204?text=Olá!%20Quero%20acesso%20ao%20Aviator%20AO%20Pro%20VIP" class="btn-wa" target="_blank">📲 OBTER ACESSO VIP — WHATSAPP</a>
+    <div><div class="guarantee">🔒 Pagamento seguro · Acesso imediato</div></div>
+  </div>
+
+  <div class="gate-wrap">
+    <div class="gate-card">
+      <div class="gate-title">🔐 Acesso VIP — Painel Bot</div>
+      <div class="gate-sub">Já tens acesso? Insere a senha para entrar no <strong>Motor Quântico</strong>.</div>
+      <div class="gate-feats">
+        <div class="gf">⚡ 4 algoritmos</div>
+        <div class="gf">🎯 10 plataformas AO</div>
+        <div class="gf">📊 Mapa de calor</div>
+        <div class="gf">🛡️ Admin completo</div>
+      </div>
+      <input type="password" class="gate-input" id="passInput" placeholder="✦ INSERE A TUA SENHA VIP" maxlength="20" onkeydown="if(event.key==='Enter')checkPass()">
+      <div class="gate-error" id="gateErr">❌ Senha incorreta. Contacta o suporte.</div>
+      <button class="btn-access" onclick="checkPass()">🚀 ENTRAR NO BOT</button>
+      <div class="gate-note" style="margin-top:11px;">Sem senha? <a href="https://wa.me/244937175204" target="_blank">Obtém acesso VIP →</a></div>
+    </div>
+  </div>
+  <div style="height:36px;"></div>
+
+  <footer>
+    <p>© 2026 <strong>AVIATOR AO PRO</strong> · Motor Quântico · #1 Angola</p>
+    <p style="margin-top:5px;font-size:.66rem;">Jogue com responsabilidade. Apenas maiores de 18 anos.</p>
+    <button onclick="openAdmin()" style="margin-top:12px;background:none;border:none;color:rgba(255,255,255,0.09);font-size:.65rem;cursor:pointer;font-family:'Rajdhani',sans-serif;">⚙️ Admin</button>
+  </footer>
+</div>
+
+<!-- ═══════════ PAGE 2 — BOT ═══════════ -->
+<div class="page" id="page2">
+  <button class="btn-back" onclick="goBack()">← Voltar</button>
+  <div class="bot-hdr">
+    <h2>⚡ MOTOR QUÂNTICO AO</h2>
+    <p id="botStatus">4 algoritmos ativos · Angola · Análise em tempo real</p>
+  </div>
+
+  <div class="bot-wrap">
+    <div class="plat-lbl">Seleciona a Plataforma</div>
+    <div class="plat-grid">
+      <button class="plat-btn active" data-plat="BETCLIC" onclick="selPlat(this)"><div class="pd"></div>BETCLIC</button>
+      <button class="plat-btn" data-plat="BET.PT" onclick="selPlat(this)"><div class="pd"></div>BET.PT</button>
+      <button class="plat-btn" data-plat="MEGA SENA" onclick="selPlat(this)"><div class="pd"></div>MEGA SENA</button>
+      <button class="plat-btn" data-plat="PLACARD" onclick="selPlat(this)"><div class="pd"></div>PLACARD</button>
+      <button class="plat-btn" data-plat="BETWINNER" onclick="selPlat(this)"><div class="pd"></div>BETWINNER</button>
+      <button class="plat-btn" data-plat="1XBET" onclick="selPlat(this)"><div class="pd"></div>1XBET</button>
+      <button class="plat-btn" data-plat="PARIMATCH" onclick="selPlat(this)"><div class="pd"></div>PARIMATCH</button>
+      <button class="plat-btn" data-plat="SPORTYBET" onclick="selPlat(this)"><div class="pd"></div>SPORTYBET</button>
+      <button class="plat-btn" data-plat="BETANO" onclick="selPlat(this)"><div class="pd"></div>BETANO</button>
+      <button class="plat-btn" data-plat="HOLLYWOODBETS" onclick="selPlat(this)"><div class="pd"></div>HOLLYWOODBETS</button>
+    </div>
+
+    <div class="sig-card">
+      <div class="sig-lbl" id="sigLbl">MOTOR QUÂNTICO PRONTO</div>
+      <div class="sig-val idle" id="sigVal">- - . -</div>
+      <div class="sig-sub" id="sigSub">Pressiona INICIAR ANÁLISE</div>
+      <div class="sig-badge hi" id="sigBadge" style="display:none;"></div>
+
+      <div class="algo-section" id="algoSection">
+        <div class="algo-grid">
+          <div class="am"><div class="am-name">Fibonacci</div><div class="am-bar"><div class="am-fill f1" id="aFib"></div></div><div class="am-val" id="vFib">0%</div></div>
+          <div class="am"><div class="am-name">Streak</div><div class="am-bar"><div class="am-fill f2" id="aStr"></div></div><div class="am-val" id="vStr">0%</div></div>
+          <div class="am"><div class="am-name">Monte Carlo</div><div class="am-bar"><div class="am-fill f3" id="aMC"></div></div><div class="am-val" id="vMC">0%</div></div>
+          <div class="am"><div class="am-name">Pattern</div><div class="am-bar"><div class="am-fill f4" id="aPat"></div></div><div class="am-val" id="vPat">0%</div></div>
+        </div>
+        <div class="num-stream" id="numStream"></div>
+      </div>
+    </div>
+
+    <div class="prog-wrap" id="progWrap">
+      <div class="prog-outer"><div class="prog-fill" id="progFill"></div></div>
+      <div class="prog-info"><span id="progLbl">Aguardando...</span><span id="progPct">0%</span></div>
+      <div class="prog-phase" id="progPhase"></div>
+    </div>
+
+    <div class="res-detail" id="resDetail">
+      <div class="res-inner">
+        <div class="res-title">📊 Análise Completa</div>
+        <div class="res-grid">
+          <div class="ri"><div class="ri-lbl">Algoritmo</div><div class="ri-val" id="rdAlgo">—</div></div>
+          <div class="ri"><div class="ri-lbl">Confiança</div><div class="ri-val" style="color:var(--green)" id="rdConf">—</div></div>
+          <div class="ri"><div class="ri-lbl">Risco</div><div class="ri-val" id="rdRisk">—</div></div>
+          <div class="ri"><div class="ri-lbl">Janela</div><div class="ri-val" id="rdWin">—</div></div>
+        </div>
+        <div class="dist-bars">
+          <div class="dist-title">Distribuição de Multiplicadores</div>
+          <div class="dist-row" id="distRow"></div>
+          <div class="dist-labels"><span>1x</span><span>2x</span><span>5x</span><span>10x</span><span>20x</span><span>50x+</span></div>
+        </div>
+        <div class="gauge-section">
+          <div class="gauge-lbl">Probabilidade de Acerto</div>
+          <div class="gauge-bar"><div class="gauge-fill" id="gaugeFill" style="width:0%;"></div></div>
+          <div class="gauge-val" id="gaugeVal">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ms-row">
+      <div class="ms"><div class="ms-n g" id="sW">0</div><div class="ms-l">✅ Win</div></div>
+      <div class="ms"><div class="ms-n r" id="sL">0</div><div class="ms-l">❌ Loss</div></div>
+      <div class="ms"><div class="ms-n o" id="sR">--%</div><div class="ms-l">📊 Rate</div></div>
+      <div class="ms"><div class="ms-n c" id="sT">0</div><div class="ms-l">🎯 Total</div></div>
+    </div>
+
+    <div class="hm-card">
+      <div class="hm-title">🔥 Mapa de Calor — Sessão</div>
+      <div class="hm-cells" id="hmCells"></div>
+      <div class="hm-legend">
+        <span><span class="hm-dot" style="background:rgba(0,230,118,.5);"></span>Alta (>85%)</span>
+        <span><span class="hm-dot" style="background:rgba(255,215,0,.5);"></span>Média (70-84%)</span>
+        <span><span class="hm-dot" style="background:rgba(255,0,34,.4);"></span>Baixa (&lt;70%)</span>
+      </div>
+    </div>
+
+    <button class="btn-gen" id="btnGen" onclick="genSignal()">⚡ INICIAR ANÁLISE QUÂNTICA</button>
+
+    <div class="log-card">
+      <div class="log-head">
+        <div class="log-title">📋 Histórico de Sinais</div>
+        <button class="log-clr" onclick="clearLog()">Limpar</button>
+      </div>
+      <div class="log-cols"><span>Hora</span><span>Plataforma</span><span>Sinal</span><span>Result.</span></div>
+      <div class="log-body" id="logBody"><div class="log-empty">Nenhum sinal gerado ainda</div></div>
+    </div>
+  </div>
+
+  <footer><p>© 2026 <strong>AVIATOR AO PRO</strong> · Motor Quântico Angola</p></footer>
+</div>
+
+<!-- ═══════════ PAGE 3 — ADMIN ═══════════ -->
+<div class="page" id="page3">
+  <div id="adminLogin">
+    <div class="admin-login">
+      <h2>⚙️ PAINEL ADMIN</h2>
+      <p>Acesso restrito ao administrador</p>
+      <input type="password" class="gate-input" id="adminPassInput" placeholder="✦ SENHA ADMIN" maxlength="30" onkeydown="if(event.key==='Enter')checkAdmin()">
+      <div class="gate-error" id="adminErr" style="display:none;">❌ Senha admin incorreta.</div>
+      <button class="btn-access" onclick="checkAdmin()">🔐 ENTRAR</button>
+      <div style="margin-top:12px;"><button class="btn-back" style="margin:0 auto;" onclick="goBack()">← Voltar</button></div>
+    </div>
+  </div>
+
+  <div id="adminDash" style="display:none;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 13px 0;position:relative;z-index:1;">
+      <button class="btn-back" style="margin:0;" onclick="goBack()">← Sair</button>
+      <div style="font-family:'Orbitron',monospace;font-size:.8rem;color:var(--r1);font-weight:700;">⚙️ ADMIN AO</div>
+    </div>
+    <div class="admin-wrap">
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="aTab(this,'t-stats')">📊 Stats</button>
+        <button class="admin-tab" onclick="aTab(this,'t-members')">👥 Membros</button>
+        <button class="admin-tab" onclick="aTab(this,'t-passes')">🔑 Senhas</button>
+        <button class="admin-tab" onclick="aTab(this,'t-config')">⚙️ Config</button>
+        <button class="admin-tab" onclick="aTab(this,'t-msg')">📢 Mensagem</button>
+      </div>
+
+      <!-- STATS -->
+      <div class="admin-section active" id="t-stats">
+        <div class="admin-card">
+          <h3>📊 Estatísticas Gerais</h3>
+          <div class="stat-grid">
+            <div class="astat"><div class="astat-n" id="aTotal">0</div><div class="astat-l">Total Sinais</div></div>
+            <div class="astat"><div class="astat-n" id="aMembers">31</div><div class="astat-l">Membros</div></div>
+            <div class="astat"><div class="astat-n">94%</div><div class="astat-l">Taxa Acerto</div></div>
+            <div class="astat"><div class="astat-n" id="aRev">125.000</div><div class="astat-l">Receita AOA</div></div>
+          </div>
+        </div>
+        <div class="admin-card">
+          <h3>📋 Log de Sinais</h3>
+          <div style="max-height:170px;overflow-y:auto;" id="adminLog"><div style="text-align:center;padding:16px;color:var(--muted);font-size:.8rem;">Nenhum sinal gerado</div></div>
+        </div>
+        <div class="admin-card">
+          <h3>🏆 Plataformas Mais Usadas</h3>
+          <div id="platStats"><div style="text-align:center;padding:14px;color:var(--muted);font-size:.8rem;">Sem dados ainda</div></div>
+        </div>
+      </div>
+
+      <!-- MEMBERS -->
+      <div class="admin-section" id="t-members">
+        <div class="admin-card">
+          <h3>➕ Adicionar Membro</h3>
+          <div class="form-group"><label class="form-label">Nome</label><input type="text" class="form-input" id="mName" placeholder="Ex: João Domingos"></div>
+          <div class="form-group"><label class="form-label">WhatsApp</label><input type="text" class="form-input" id="mWA" placeholder="244937175204"></div>
+          <div class="form-group"><label class="form-label">Plano</label>
+            <select class="form-select" id="mPlan">
+              <option>Mensal — 5.000 AOA</option>
+              <option>Semanal — 2.000 AOA</option>
+              <option>Anual — 45.000 AOA</option>
+              <option>VIP Especial</option>
+            </select>
+          </div>
+          <button class="btn-admin" onclick="addMember()">✅ Adicionar Membro</button>
+        </div>
+        <div class="admin-card"><h3>👥 Lista de Membros</h3><div id="memberList"><div style="text-align:center;padding:16px;color:var(--muted);font-size:.8rem;">Sem membros</div></div></div>
+      </div>
+
+      <!-- PASSES -->
+      <div class="admin-section" id="t-passes">
+        <div class="admin-card">
+          <h3>🔑 Gerar Senha de Acesso</h3>
+          <div class="form-group"><label class="form-label">Plano do Cliente</label>
+            <select class="form-select" id="passType">
+              <option>Mensal — 5.000 AOA</option>
+              <option>Semanal — 2.000 AOA</option>
+              <option>Anual — 45.000 AOA</option>
+              <option>VIP Especial</option>
+            </select>
+          </div>
+          <button class="btn-admin" onclick="genPass()">⚡ GERAR SENHA</button>
+          <div class="pass-box" id="passBox" style="display:none;">
+            <div class="pass-val" id="passVal"></div>
+            <button class="btn-copy" onclick="copyPass()">📋 Copiar Senha</button>
+          </div>
+        </div>
+        <div class="admin-card">
+          <h3>📱 Mensagem WhatsApp Pronta</h3>
+          <div class="msg-preview" id="waMsg">Gera uma senha primeiro para ver a mensagem.</div>
+          <button class="btn-admin" style="margin-top:8px;" id="btnSendWA" onclick="sendWA()" disabled>📲 Enviar no WhatsApp</button>
+        </div>
+        <div class="admin-card"><h3>🔐 Senhas Ativas</h3><div id="passList"><div style="text-align:center;padding:14px;color:var(--muted);font-size:.8rem;">Nenhuma senha gerada</div></div></div>
+      </div>
+
+      <!-- CONFIG -->
+      <div class="admin-section" id="t-config">
+        <div class="admin-card">
+          <h3>🔑 Alterar Senhas</h3>
+          <div class="form-group"><label class="form-label">Nova Senha do Bot</label><input type="text" class="form-input" id="newBotPass" placeholder="Atual: AOA2026"></div>
+          <div class="form-group"><label class="form-label">Nova Senha Admin</label><input type="password" class="form-input" id="newAdminPass" placeholder="Deixa vazio para não alterar"></div>
+          <button class="btn-admin" onclick="savePasses()">💾 Guardar Senhas</button>
+        </div>
+        <div class="admin-card">
+          <h3>⚙️ Configurações do Bot</h3>
+          <div class="toggle-row"><div><div class="tog-lbl">Bot Online</div><div class="tog-desc">Ativar geração de sinais</div></div><div class="tog on" onclick="this.classList.toggle('on')"></div></div>
+          <div class="toggle-row"><div><div class="tog-lbl">Modo Urgência</div><div class="tog-desc">Contador de vagas limitadas</div></div><div class="tog on" onclick="this.classList.toggle('on')"></div></div>
+          <div class="toggle-row"><div><div class="tog-lbl">Mostrar Confiança %</div><div class="tog-desc">Exibir nível de confiança</div></div><div class="tog on" onclick="this.classList.toggle('on')"></div></div>
+          <div class="toggle-row"><div><div class="tog-lbl">Mapa de Calor</div><div class="tog-desc">Visualização da sessão</div></div><div class="tog on" onclick="this.classList.toggle('on')"></div></div>
+          <div style="margin-top:11px;">
+            <div class="form-group"><label class="form-label">Multiplicador Mínimo</label>
+              <select class="form-select" id="minMult">
+                <option>2x — Conservador</option>
+                <option selected>3x — Equilibrado</option>
+                <option>5x — Agressivo</option>
+                <option>10x — Ultra alto</option>
+              </select>
+            </div>
+            <button class="btn-admin" onclick="toast('✅ Configurações guardadas!')">💾 Guardar Config</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MESSAGE -->
+      <div class="admin-section" id="t-msg">
+        <div class="admin-card">
+          <h3>📢 Broadcast para Membros</h3>
+          <div class="form-group"><label class="form-label">Mensagem</label><textarea class="form-input" id="broadcastMsg" rows="4" placeholder="Ex: 🔥 Sessão quente agora no Betclic! Gera o teu sinal AGORA!" style="resize:none;"></textarea></div>
+          <button class="btn-admin" onclick="previewBroadcast()">👁️ Pré-visualizar</button>
+          <div class="msg-preview" id="broadcastPreview" style="display:none;margin-top:8px;"></div>
+          <button class="btn-admin" style="margin-top:8px;" id="btnBroadcast" onclick="sendBroadcast()" disabled>📲 Enviar para Todos</button>
+        </div>
+        <div class="admin-card">
+          <h3>⚡ Mensagens Rápidas</h3>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <button class="btn-admin ghost" onclick="qMsg(0)">🔥 Alerta — Sessão quente agora</button>
+            <button class="btn-admin ghost" onclick="qMsg(1)">💰 Sinal VIP exclusivo disponível</button>
+            <button class="btn-admin ghost" onclick="qMsg(2)">⚠️ Manutenção programada</button>
+            <button class="btn-admin ghost" onclick="qMsg(3)">🎉 Promoção especial hoje</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer><p>© 2026 <strong>AVIATOR AO PRO</strong> · Painel Admin</p></footer>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ══ PASSWORDS ══
+let BOT_PASS='', ADMIN_PASS='@@@@Mentor.Pedroinplacavel.';
+
+// ══ STATE ══
+let curPlat='BETCLIC', generating=false;
+let logData=[], sessionHistory=[], hmIdx=0;
+let wins=0, losses=0;
+let members=[], activePasses=[], lastPass='';
+let platCount={}, streamIv=null;
+
+// ══ PAGES ══
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+function goBack(){showPage('page1');}
+function openAdmin(){showPage('page3');document.getElementById('adminLogin').style.display='block';document.getElementById('adminDash').style.display='none';}
+
+// ══ AUTH ══
+function checkPass(){
+  const v=document.getElementById('passInput').value.trim().toUpperCase();
+  const ok=activePasses.some(p=>p.pass.toUpperCase()===v);
+  if(ok){showPage('page2');document.getElementById('passInput').value='';document.getElementById('gateErr').style.display='none';initHeatmap();}
+  else{document.getElementById('gateErr').style.display='block';shakeInput('passInput');toast('❌ Senha incorreta!','terr');}
+}
+function checkAdmin(){
+  const v=document.getElementById('adminPassInput').value.trim();
+  if(v===ADMIN_PASS){
+    document.getElementById('adminLogin').style.display='none';
+    document.getElementById('adminDash').style.display='block';
+    document.getElementById('adminPassInput').value='';
+    document.getElementById('adminErr').style.display='none';
+    refreshAdminStats();
+  } else {document.getElementById('adminErr').style.display='block';toast('❌ Senha admin incorreta!','terr');}
+}
+function shakeInput(id){const el=document.getElementById(id);el.classList.add('err');setTimeout(()=>el.classList.remove('err'),450);}
+
+// ══ PLATFORM ══
+function selPlat(btn){document.querySelectorAll('.plat-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');curPlat=btn.dataset.plat;}
+
+// ════════════════════════════════
+// QUANTUM ENGINE — 4 ALGORITHMS
+// ════════════════════════════════
+const PROFILES={
+  'BETCLIC':       {bias:1.20,stk:0.70,fibW:0.90,patW:1.00,min:1.5,max:32,vol:1.15},
+  'BET.PT':        {bias:1.00,stk:0.55,fibW:1.10,patW:0.95,min:1.3,max:24,vol:1.00},
+  'MEGA SENA':     {bias:1.10,stk:0.65,fibW:0.95,patW:1.05,min:1.4,max:28,vol:1.10},
+  'PLACARD':       {bias:0.95,stk:0.60,fibW:1.05,patW:1.00,min:1.3,max:22,vol:0.95},
+  'BETWINNER':     {bias:1.30,stk:0.80,fibW:0.85,patW:1.10,min:1.4,max:40,vol:1.25},
+  '1XBET':         {bias:1.25,stk:0.75,fibW:0.88,patW:1.08,min:1.5,max:38,vol:1.20},
+  'PARIMATCH':     {bias:1.05,stk:0.58,fibW:1.00,patW:0.98,min:1.3,max:26,vol:1.05},
+  'SPORTYBET':     {bias:1.15,stk:0.70,fibW:0.92,patW:1.03,min:1.4,max:30,vol:1.12},
+  'BETANO':        {bias:1.08,stk:0.62,fibW:1.02,patW:1.00,min:1.3,max:25,vol:1.08},
+  'HOLLYWOODBETS': {bias:1.18,stk:0.72,fibW:0.88,patW:1.06,min:1.4,max:35,vol:1.18},
+};
+
+const FIB=[1,1,2,3,5,8,13,21,34,55,89,144];
+
+function hourVol(){
+  const h=new Date().getHours();
+  if(h>=20&&h<=23)return 1.45;
+  if(h>=12&&h<=14)return 1.20;
+  if(h>=7&&h<=9) return 1.10;
+  if(h>=0&&h<=4) return 1.30;
+  return 1.0;
+}
+
+// 1. FIBONACCI ENGINE
+function fibEngine(seed,p){
+  const idx=Math.abs(Math.floor(seed*1000))%FIB.length;
+  const ratio=FIB[idx]/(FIB[Math.min(idx+1,11)]||144);
+  return p.min+(1-ratio)*p.max*0.32*p.fibW;
+}
+
+// 2. STREAK ENGINE
+function streakEngine(history,p){
+  if(history.length<3)return p.min+Math.random()*4;
+  const last5=history.slice(-5);
+  const low=last5.filter(v=>v<2.5).length;
+  const high=last5.filter(v=>v>8).length;
+  if(low>=3)return 4+Math.random()*13;
+  if(high>=3)return p.min+Math.random()*2.5;
+  const avg=last5.reduce((a,b)=>a+b,0)/last5.length;
+  return avg*(0.75+Math.random()*0.65)*p.stk;
+}
+
+// 3. MONTE CARLO QUANTUM (500 simulations)
+function monteCarloEngine(p,hv){
+  let acc=0;
+  const N=500;
+  for(let i=0;i<N;i++){
+    const u=Math.random()+1e-9;
+    const raw=p.min*Math.pow(1/u,0.38*p.bias*hv);
+    acc+=Math.min(Math.max(raw,p.min),p.max);
+  }
+  return acc/N;
+}
+
+// 4. PATTERN ENGINE
+function patternEngine(history,p){
+  if(history.length<5)return p.min+Math.random()*5;
+  const dist={low:0,mid:0,high:0,vhigh:0};
+  history.slice(-25).forEach(v=>{
+    if(v<2)dist.low++; else if(v<5)dist.mid++; else if(v<15)dist.high++; else dist.vhigh++;
+  });
+  const tot=history.slice(-25).length;
+  if(dist.low/tot>0.55)return 3.5+Math.random()*12;
+  if(dist.vhigh/tot<0.05)return 6+Math.random()*15;
+  return p.min+Math.random()*(p.max*0.38)*p.patW;
+}
+
+// MASTER COMBINER — weighted: Fib 20%, Streak 25%, MC 35%, Pattern 20%
+function masterEngine(){
+  const p=PROFILES[curPlat];
+  const hv=hourVol();
+  const seed=Math.random();
+
+  const r1=fibEngine(seed,p)*hv;
+  const r2=streakEngine(sessionHistory,p)*hv;
+  const r3=monteCarloEngine(p,hv);
+  const r4=patternEngine(sessionHistory,p)*hv;
+
+  const W=[0.20,0.25,0.35,0.20];
+  const vals=[r1,r2,r3,r4];
+  let result=vals.reduce((acc,v,i)=>acc+v*W[i],0);
+  result=Math.min(Math.max(result,p.min),p.max);
+  result=Math.round(result*100)/100;
+
+  // Confidence
+  const mean=vals.reduce((a,b)=>a+b,0)/4;
+  const std=Math.sqrt(vals.reduce((a,b)=>a+Math.pow(b-mean,2),0)/4);
+  const cv=std/mean;
+  const conf=Math.round(Math.max(62,Math.min(97,96-cv*32)));
+
+  // Dominant
+  const names=['FIBONACCI','STREAK','MONTE CARLO','PADRÃO'];
+  const maxV=Math.max(...vals);
+  const dominant=names[vals.indexOf(maxV)];
+
+  const risk=result<2.5?'BAIXO':result<6?'MÉDIO':result<15?'ALTO':'MUITO ALTO';
+  const riskColor=result<2.5?'var(--green)':result<6?'var(--gold)':'var(--r1)';
+  const window='Próximas '+(Math.floor(Math.random()*2)+1)+'-'+(Math.floor(Math.random()*3)+3)+' rondas';
+
+  const scores={
+    fib:Math.round(Math.min(r1/p.max*100,99)),
+    str:Math.round(Math.min(r2/p.max*100,99)),
+    mc: Math.round(Math.min(r3/p.max*100,99)),
+    pat:Math.round(Math.min(r4/p.max*100,99)),
+  };
+
+  return{result,conf,dominant,risk,riskColor,window,scores};
+}
+
+// ══ PHASES ══
+const PHASES=[
+  ['Conectando ao servidor...','Autenticando sessão VIP...','A iniciar motor...'],
+  ['Carregando sequências Fibonacci...','Calculando razão áurea...','Mapeando padrões numéricos...'],
+  ['Analisando streaks recentes...','Avaliando sequências da sessão...','Calculando tendência de streak...'],
+  ['Executando 500 simulações Monte Carlo...','Convergindo probabilidades...','Calculando valor esperado...'],
+  ['Analisando padrões históricos...','Verificando ciclos de distribuição...','Combinando 4 algoritmos com pesos...'],
+  ['Validando sinal final...','Calculando janela de entrada...','✅ Análise completa!'],
+];
+
+function genSignal(){
+  if(generating)return; generating=true;
+  document.getElementById('resDetail').style.display='none';
+  const btn=document.getElementById('btnGen');
+  btn.disabled=true; btn.textContent='⏳ MOTOR QUÂNTICO ATIVO...';
+  document.getElementById('progWrap').style.display='block';
+  document.getElementById('sigVal').className='sig-val loading';
+  document.getElementById('sigVal').textContent='- -.-';
+  document.getElementById('sigBadge').style.display='none';
+  document.getElementById('sigLbl').textContent='ANÁLISE EM CURSO...';
+  document.getElementById('sigSub').textContent='';
+  document.getElementById('algoSection').style.display='block';
+  document.getElementById('numStream').style.display='block';
+
+  // Reset meters
+  ['aFib','aStr','aMC','aPat'].forEach(id=>document.getElementById(id).style.width='0%');
+  ['vFib','vStr','vMC','vPat'].forEach(id=>document.getElementById(id).textContent='0%');
+
+  // Number stream
+  clearInterval(streamIv);
+  const ns=document.getElementById('numStream');
+  streamIv=setInterval(()=>{
+    const nums=Array.from({length:20},()=>(Math.random()*42+1).toFixed(2)).join(' · ');
+    ns.textContent=nums;
+  },100);
+
+  const computed=masterEngine();
+  let pct=0, phase=0;
+  const pf=document.getElementById('progFill');
+  const mIds=['aFib','aStr','aMC','aPat'];
+  const vIds=['vFib','vStr','vMC','vPat'];
+  const scoreArr=[computed.scores.fib,computed.scores.str,computed.scores.mc,computed.scores.pat];
+
+  const iv=setInterval(()=>{
+    pct+=Math.random()*4+1.5; if(pct>100)pct=100;
+    pf.style.width=pct+'%';
+    document.getElementById('progPct').textContent=Math.floor(pct)+'%';
+    const np=Math.min(Math.floor(pct/100*PHASES.length),PHASES.length-1);
+    if(np!==phase)phase=np;
+    const si=Math.floor(Math.random()*PHASES[phase].length);
+    document.getElementById('progLbl').textContent=PHASES[phase][si];
+    document.getElementById('progPhase').textContent='FASE '+(phase+1)+'/'+PHASES.length;
+
+    mIds.forEach((id,i)=>{
+      const target=scoreArr[i];
+      const cur=parseFloat(document.getElementById(id).style.width)||0;
+      const nw=Math.min(cur+target/100*pct/38,target);
+      document.getElementById(id).style.width=nw+'%';
+      document.getElementById(vIds[i]).textContent=Math.round(nw)+'%';
+    });
+
+    if(pct>=100){clearInterval(iv);setTimeout(()=>revealSignal(computed),250);}
+  },80);
+}
+
+function revealSignal(d){
+  clearInterval(streamIv);
+  document.getElementById('numStream').style.display='none';
+  document.getElementById('algoSection').style.display='none';
+
+  document.getElementById('sigVal').className='sig-val';
+  document.getElementById('sigVal').textContent=d.result+'x';
+  document.getElementById('sigLbl').textContent='🎯 SINAL CONFIRMADO · '+curPlat;
+  document.getElementById('sigSub').textContent='Faz cash out ao atingir '+d.result+'x';
+  const sb=document.getElementById('sigBadge');
+  sb.style.display='inline-block';
+  sb.className='sig-badge '+(d.conf>=85?'hi':d.conf>=70?'md':'lo');
+  sb.textContent='🔒 CONFIANÇA '+d.conf+'% · '+(d.conf>=85?'ALTA':d.conf>=70?'MÉDIA':'BAIXA');
+
+  setTimeout(()=>{document.getElementById('progWrap').style.display='none';document.getElementById('progFill').style.width='0%';},500);
+
+  // Result detail
+  document.getElementById('rdAlgo').textContent=d.dominant;
+  document.getElementById('rdConf').textContent=d.conf+'%';
+  document.getElementById('rdRisk').textContent=d.risk;
+  document.getElementById('rdRisk').style.color=d.riskColor;
+  document.getElementById('rdWin').textContent=d.window;
+
+  // Distribution bars
+  const dr=document.getElementById('distRow');
+  dr.innerHTML='';
+  const colors=['rgba(255,0,34,.6)','rgba(255,69,0,.6)','rgba(255,140,0,.6)','rgba(255,215,0,.6)','rgba(0,230,118,.6)','rgba(0,188,212,.6)'];
+  const bh=Array.from({length:6},()=>Math.random()*35+5);
+  const mx=Math.max(...bh);
+  bh.forEach((h,i)=>{const b=document.createElement('div');b.className='dist-bar';b.style.cssText='flex:1;border-radius:2px 2px 0 0;background:'+colors[i]+';height:'+Math.round(h/mx*38)+'px;';dr.appendChild(b);});
+
+  // Gauge
+  setTimeout(()=>{
+    document.getElementById('gaugeFill').style.width=d.conf+'%';
+    document.getElementById('gaugeVal').textContent=d.conf+'%';
+  },200);
+
+  document.getElementById('resDetail').style.display='block';
+
+  sessionHistory.push(d.result);
+  if(sessionHistory.length>50)sessionHistory.shift();
+  platCount[curPlat]=(platCount[curPlat]||0)+1;
+  addLog(d.result+'x',curPlat,d.conf);
+  updateHeatmap(d.conf);
+  updateStats();
+  toast('🎯 '+d.result+'x · '+d.dominant+' · '+d.conf+'% confiança');
+  document.getElementById('btnGen').disabled=false;
+  document.getElementById('btnGen').textContent='⚡ NOVO SINAL QUÂNTICO';
+  generating=false;
+}
+
+// ══ HEATMAP ══
+function initHeatmap(){
+  const c=document.getElementById('hmCells');
+  if(!c)return;
+  c.innerHTML='';
+  for(let i=0;i<40;i++){const d=document.createElement('div');d.className='hm-cell';d.id='hmc'+i;c.appendChild(d);}
+  hmIdx=0;
+}
+function updateHeatmap(conf){
+  const el=document.getElementById('hmc'+(hmIdx%40));
+  if(!el)return;
+  el.style.background=conf>=85?'rgba(0,230,118,.55)':conf>=70?'rgba(255,215,0,.5)':'rgba(255,0,34,.4)';
+  el.title=conf+'%'; hmIdx++;
+}
+
+// ══ LOG ══
+function addLog(mult,plat,conf){
+  const now=new Date();
+  const t=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+  logData.unshift({t,plat,mult,conf});
+  if(logData.length>50)logData.pop();
+  renderLog(); renderAdminLog();
+}
+function renderLog(){
+  const b=document.getElementById('logBody');
+  if(!logData.length){b.innerHTML='<div class="log-empty">Nenhum sinal gerado ainda</div>';return;}
+  b.innerHTML=logData.map((r,i)=>`<div class="log-row"><span style="color:var(--muted)">${r.t}</span><span style="color:var(--muted);font-size:.75rem;">${r.plat}</span><span class="log-mult">${r.mult}</span><span class="log-res ${i===0?'pend':'win'}">${i===0?'⏳':'✅'}</span></div>`).join('');
+}
+function clearLog(){
+  logData=[];sessionHistory=[];wins=0;losses=0;platCount={};
+  renderLog();updateStats();
+  document.getElementById('sigVal').textContent='- - . -';
+  document.getElementById('sigVal').className='sig-val idle';
+  document.getElementById('sigLbl').textContent='MOTOR QUÂNTICO PRONTO';
+  document.getElementById('sigSub').textContent='Pressiona INICIAR ANÁLISE';
+  document.getElementById('sigBadge').style.display='none';
+  document.getElementById('resDetail').style.display='none';
+  document.getElementById('btnGen').textContent='⚡ INICIAR ANÁLISE QUÂNTICA';
+  initHeatmap();
+}
+function updateStats(){
+  const total=Math.max(0,logData.length-1);
+  losses=Math.round(total*0.06); wins=total-losses;
+  const r=total>0?Math.round(wins/total*100):'--';
+  document.getElementById('sW').textContent=wins;
+  document.getElementById('sL').textContent=losses;
+  document.getElementById('sR').textContent=r+(r!=='--'?'%':'');
+  document.getElementById('sT').textContent=logData.length;
+}
+
+// ══ ADMIN ══
+function aTab(btn,id){
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));
+  btn.classList.add('active'); document.getElementById(id).classList.add('active');
+}
+function refreshAdminStats(){
+  const el=document.getElementById('aTotal');if(el)el.textContent=logData.length;
+  const em=document.getElementById('aMembers');if(em)em.textContent=members.length||31;
+  renderAdminLog(); renderPlatStats();
+}
+function renderAdminLog(){
+  const el=document.getElementById('adminLog');if(!el)return;
+  if(!logData.length){el.innerHTML='<div style="text-align:center;padding:14px;color:var(--muted);font-size:.78rem;">Nenhum sinal</div>';return;}
+  el.innerHTML=logData.map(r=>`<div style="display:grid;grid-template-columns:48px 1fr auto;padding:6px 0;border-bottom:1px solid rgba(255,0,34,.05);font-size:.78rem;gap:5px;align-items:center;"><span style="color:var(--muted)">${r.t}</span><span style="font-size:.74rem;">${r.plat}</span><span style="font-family:Orbitron,monospace;color:var(--gold);font-size:.74rem;">${r.mult}</span></div>`).join('');
+}
+function renderPlatStats(){
+  const el=document.getElementById('platStats');if(!el)return;
+  if(!Object.keys(platCount).length){el.innerHTML='<div style="text-align:center;padding:12px;color:var(--muted);font-size:.78rem;">Sem dados</div>';return;}
+  el.innerHTML=Object.entries(platCount).sort((a,b)=>b[1]-a[1]).map(([p,c])=>`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,0,34,.06);font-size:.84rem;"><span style="font-weight:700;">${p}</span><span style="color:var(--gold);font-family:Orbitron,monospace;font-size:.78rem;">${c} sinais</span></div>`).join('');
+}
+
+function addMember(){
+  const n=document.getElementById('mName').value.trim();
+  const w=document.getElementById('mWA').value.trim();
+  const pl=document.getElementById('mPlan').value;
+  if(!n||!w){toast('⚠️ Preenche nome e WhatsApp!','terr');return;}
+  members.unshift({n,w,pl,date:new Date().toLocaleDateString('pt'),active:true});
+  document.getElementById('mName').value=''; document.getElementById('mWA').value='';
+  renderMembers(); document.getElementById('aMembers').textContent=members.length;
+  toast('✅ Membro '+n+' adicionado!');
+}
+function renderMembers(){
+  const el=document.getElementById('memberList');
+  if(!members.length){el.innerHTML='<div style="text-align:center;padding:14px;color:var(--muted);font-size:.78rem;">Sem membros</div>';return;}
+  el.innerHTML=members.map((m,i)=>`<div class="member-row"><div><div class="member-name">${m.n}</div><div class="member-meta">📱 ${m.w} · ${m.pl} · ${m.date}</div></div><div style="display:flex;align-items:center;gap:5px;"><span class="mbadge on">Ativo</span><button class="btn-del" onclick="members.splice(${i},1);renderMembers();document.getElementById('aMembers').textContent=members.length||31;">✕</button></div></div>`).join('');
+}
+
+function genPass(){
+  const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let p=''; for(let i=0;i<8;i++)p+=chars[Math.floor(Math.random()*chars.length)];
+  lastPass=p;
+  document.getElementById('passVal').textContent=p;
+  document.getElementById('passBox').style.display='block';
+  const plan=document.getElementById('passType').value;
+  const msg=`🚀 *AVIATOR AO PRO — Acesso VIP*\n\n✅ O teu acesso foi ativado!\n\n🔑 *Senha:* \`${p}\`\n📦 *Plano:* ${plan}\n\n🌐 *Link:* [Cola o link do teu site aqui]\n\n➡️ Acessa o link, insere a senha e começa a ganhar Kwanzas!\n\n_Aviator AO Pro · Motor Quântico #1 Angola_ 🇦🇴`;
+  document.getElementById('waMsg').textContent=msg;
+  document.getElementById('btnSendWA').disabled=false;
+  activePasses.unshift({pass:p,plan,date:new Date().toLocaleDateString('pt')});
+  renderPassList();
+}
+function copyPass(){if(!lastPass)return;navigator.clipboard?.writeText(lastPass).catch(()=>{});toast('📋 Senha copiada: '+lastPass);}
+function sendWA(){const msg=document.getElementById('waMsg').textContent;const wa=document.getElementById('mWA')?.value||'244937175204';window.open('https://wa.me/'+wa.replace(/\D/g,'')+'?text='+encodeURIComponent(msg),'_blank');}
+function renderPassList(){
+  const el=document.getElementById('passList');
+  if(!activePasses.length){el.innerHTML='<div style="text-align:center;padding:12px;color:var(--muted);font-size:.78rem;">Nenhuma senha</div>';return;}
+  el.innerHTML=activePasses.map((p,i)=>`<div class="member-row"><div><div style="font-family:Orbitron,monospace;font-weight:700;letter-spacing:3px;color:var(--gold);font-size:.88rem;">${p.pass}</div><div class="member-meta">${p.plan} · ${p.date}</div></div><div style="display:flex;align-items:center;gap:5px;"><span class="mbadge on">Ativa</span><button class="btn-del" onclick="activePasses.splice(${i},1);renderPassList();">✕</button></div></div>`).join('');
+}
+
+function savePasses(){
+  const nb=document.getElementById('newBotPass').value.trim();
+  const na=document.getElementById('newAdminPass').value.trim();
+  if(nb){BOT_PASS=nb;toast('✅ Senha do bot: '+nb);}
+  if(na){ADMIN_PASS=na;toast('✅ Senha admin atualizada!');}
+  if(!nb&&!na)toast('⚠️ Preenche pelo menos uma senha!','terr');
+}
+
+const QMSGS=[
+  '🔥 ALERTA! Sessão quente agora no Betclic Angola! Acessa o bot e gera o teu sinal AGORA! 🚀',
+  '💰 Sinal VIP EXCLUSIVO disponível agora. Não percas esta oportunidade de ganhar Kwanzas!',
+  '⚠️ Manutenção programada amanhã das 02h-04h. O sistema estará temporariamente offline.',
+  '🎉 PROMOÇÃO ESPECIAL hoje! Renova o acesso por 50% de desconto. Contacta-nos agora!',
+];
+function qMsg(i){document.getElementById('broadcastMsg').value=QMSGS[i];document.getElementById('broadcastPreview').style.display='none';document.getElementById('btnBroadcast').disabled=true;}
+function previewBroadcast(){const m=document.getElementById('broadcastMsg').value.trim();if(!m){toast('⚠️ Escreve a mensagem!','terr');return;}document.getElementById('broadcastPreview').textContent='📢 PREVIEW:\n\n'+m;document.getElementById('broadcastPreview').style.display='block';document.getElementById('btnBroadcast').disabled=false;}
+function sendBroadcast(){window.open('https://wa.me/244937175204?text='+encodeURIComponent(document.getElementById('broadcastMsg').value),'_blank');toast('✅ WhatsApp aberto com a mensagem!');}
+
+// ══ TOAST ══
+function toast(msg,cls=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className=cls;t.classList.add('show');
+  setTimeout(()=>t.className='',3200);
+}
+
+// ══ LIVE COUNTERS ══
+let cnt=1042;
+setInterval(()=>{
+  cnt+=Math.floor(Math.random()*3);
+  ['sc1','sc2'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=cnt.toLocaleString();});
+},7500);
+
+let spots=17;
+setInterval(()=>{
+  if(spots>12&&Math.random()>.75){spots--;const e=document.getElementById('spots');if(e)e.textContent=spots;}
+},14000);
+</script>
+</body>
+</html>
